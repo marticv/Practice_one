@@ -10,13 +10,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.practice_one.ui.theme.Practice_oneTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,7 +53,7 @@ fun BasicColumn() {
                 )
                 .fillMaxWidth()
         ) {
-            Text(text = "hola mundo")
+            Text(text = "Arriba")
         }
         Row(
             modifier = Modifier
@@ -59,26 +64,39 @@ fun BasicColumn() {
                 modifier = Modifier
                     .background(Color.Red)
                     .weight(1f)
-                    .fillMaxHeight()
-            ){
-Text(text = "hola mundo")
-                    }
+                    .fillMaxHeight(),
+                contentAlignment = Alignment.CenterStart
+            ) {
+                Text(text = "Izquierda",
+                modifier = Modifier.padding(10.dp))
+            }
             Box(
                 modifier = Modifier
                     .background(Color.Green)
                     .weight(1f)
-                    .fillMaxHeight()
-            ){
-                Text(text = "Hola Munco")
+                    .fillMaxHeight(),
+                contentAlignment = Alignment.CenterEnd
+            ) {
+                Text(
+                    text = "Derecha",
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(12.dp)
+                )
             }
         }
         Box(
             modifier = Modifier
                 .weight(1f)
                 .background(Color.Cyan)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            contentAlignment = Alignment.BottomCenter
         ) {
-            Text(text = "Hola Mundo")
+            Text(
+                text = "Hola Mundo",
+                modifier = Modifier.padding(12.dp),
+                fontSize = 35.sp,
+                fontWeight = FontWeight.SemiBold
+            )
         }
     }
 }
